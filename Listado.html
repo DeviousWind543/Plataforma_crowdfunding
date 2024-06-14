@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luis Alberto Iñiguez Pozo">
+    <title>Campañas Públicas - Plataforma de Crowdfunding</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html" class="active">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html" class="active2">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-content">
+            <h2>Campañas Públicas</h2>
+            <div id="campaignsList"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var campaigns = JSON.parse(localStorage.getItem('campaigns')) || [];
+
+            var campaignsList = document.getElementById('campaignsList');
+            campaigns.forEach(function(campaign) {
+                var campaignDiv = document.createElement('div');
+                campaignDiv.classList.add('campaign');
+
+                var campaignContent = `
+                    <h3>${campaign.title}</h3>
+                    <p>${campaign.description}</p>
+                    <p><strong>Meta:</strong> $${campaign.goal}</p>
+                    <p><strong>Categoría:</strong> ${campaign.category}</p>
+                `;
+
+                if (campaign.image) {
+                    campaignContent += `<img src="Img/${campaign.image}" alt="${campaign.title}" style="max-width:100%;">`;
+                }
+
+                campaignDiv.innerHTML = campaignContent;
+                campaignsList.appendChild(campaignDiv);
+            });
+        });
+    </script>
+</body>
+</html>

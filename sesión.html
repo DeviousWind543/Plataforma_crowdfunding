@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Torres Beltrán Aarón Ignacio">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .contenedorLogin {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .formularios {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        a:hover{
+        color: #4cae4c;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .sesiónL {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .Sesion {
+            background-color: #0BDA51; /* Fondo verde claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body class="Sesion">
+    <div class="contenedorLogin">
+        <h1>Iniciar Sesión</h1>
+        <form id="login">
+            <div class="formularios">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="formularios">
+                <label for="contra">Contraseña:</label>
+                <input type="password" id="contra" name="contra" required>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+        <a href="registro.html" class="sesiónL">¿No tienes cuenta? Regístrate</a>
+    </div>
+
+    <script>
+        document.getElementById('login').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.alert('Inicio de sesión de forma correcta');
+
+            const usuario = document.getElementById('usuario').value.trim();
+            const contra = document.getElementById('contra').value.trim();
+
+            // Validar campos vacíos
+            if (!usuario || !contra) {
+                const message = document.getElementById('error');
+                message.textContent = 'Por favor, complete todos los campos.';
+                message.style.color = 'red';
+                return;
+            }
+            window.location.href = 'index.html';
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Carrion Chea Michael">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Historias Publicadas - FutureGo</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        .story {
+            background: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        .story-content {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .story h3 {
+            margin-top: 0;
+        }
+        .story p {
+            margin-bottom: 10px;
+        }
+        .story img {
+            max-width: 200px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        .author-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('Img/person-icon.png');
+            background-size: cover;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .rating-stars {
+            display: flex;
+        }
+        .rating-stars span {
+            font-size: 20px;
+            color: gold;
+        }
+        @media (max-width: 768px) {
+            .story {
+                flex-direction: column;
+            }
+            .story img {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html" class="active">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html" class="active2">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="historias-container">
+            <!-- Aquí se mostrarán las historias -->
+        </section>
+    </main>
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+    <script>
+        function mostrarHistorias() {
+            const container = document.getElementById('historias-container');
+            container.innerHTML = ''; // Limpiar contenido anterior
+
+            const storedStories = JSON.parse(localStorage.getItem('stories')) || [];
+
+            storedStories.forEach(story => {
+                const storyElement = document.createElement('div');
+                storyElement.classList.add('story');
+
+                // Crear elemento para la fecha con formato
+                const formattedDate = new Date(story.publishedDate).toLocaleDateString('es-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Crear elemento para la valoración con estrellas
+                const ratingStars = document.createElement('div');
+                ratingStars.classList.add('rating-stars');
+                ratingStars.style.display = 'flex';
+
+                // Crear estrellas según la valoración
+                for (let i = 1; i <= 5; i++) {
+                    const star = document.createElement('span');
+                    if (i <= getStarRating(story.rating)) {
+                        star.innerHTML = '&#9733;'; // Estrella rellena
+                    } else {
+                        star.innerHTML = '&#9734;'; // Estrella vacía
+                    }
+                    ratingStars.appendChild(star);
+                }
+
+                storyElement.innerHTML = `
+                    <img src="${story.images[0]}" alt="Imagen de la historia">
+                    <div class="story-content">
+                        <h3>${story.title} - ${formattedDate}</h3>
+                        <p><span class="author-icon"></span>Autor: ${story.author}</p>
+                        <p>Categoría: ${story.category}</p>
+                        <p>${story.content}</p>
+                        <div class="rating">${ratingStars.innerHTML}</div>
+                    </div>
+                `;
+
+                container.appendChild(storyElement);
+            });
+        }
+
+        // Función auxiliar para obtener el número de estrellas de la valoración
+        function getStarRating(rating) {
+            switch (rating) {
+                case 'excelente':
+                    return 5;
+                case 'bueno':
+                    return 4;
+                case 'regular':
+                    return 3;
+                case 'mejorable':
+                    return 2;
+                default:
+                    return 0;
+            }
+        }
+
+        // Llamar a mostrarHistorias al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarHistorias();
+        });
+    </script>
+</body>
+</html>

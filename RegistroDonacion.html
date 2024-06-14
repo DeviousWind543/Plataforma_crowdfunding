@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kerly Solange Vargas Sancan">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Registro Donacion</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+.grid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .grid-container h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .campaña {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+
+    
+.form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .mensajeError{
+      color:rgb(255, 0, 0);
+     font-size: 9px;
+      }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], input[type="file"], select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+      
+
+        button {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            display: none;
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            display: none;
+            color: green;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .text-center{
+    text-align: center;
+}
+
+.checkbox-container {
+    border: 1px solid #ccc; /* Borde para el contenedor de los checkboxes */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y el texto */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html" class="active">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html" class="active2">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+                <div class="form-container">
+                    <h2>Donación en línea</h2>
+                 <div class="formularios">
+                 <form id="formFunciones" name="formFunciones" onsubmit="return guardarDatos(event)">
+                           <div>
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" name="nombres" id="nombres" class="formItem" placeholder="Ingrese nombres" />
+                    </div>
+                    <div>
+                        <label>Telefono:</label>
+                        <input type="text" name="telefono" id="telefono" class="formItem" placeholder="Ingrese telefono" />
+                    </div>
+
+                    <div>
+                        <label>Email:</label>
+                        <input type="text" name="correo" id="correo" class="formItem" placeholder="Ingrese correo" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Donación para:</label> </br>
+                        <div class="checkbox-container">
+                        Organizaciones sin fines de lucro <input type="checkbox" name="suscripcion" value="1" id="suscripcion"
+                            class="formItem sus" />
+                            Salud <input type="checkbox" name="suscripcion1" value="2" id="suscripcion1"
+                            class="formItem sus" />
+                        Escuelas <input type="checkbox" name="suscripcion2" value="3" id="suscripcion2"
+                            class="formItem sus" />
+                       
+                    </div>
+
+                    <div>
+                    <label>Cantidad a Donar:</label>
+                    <input type="number" name="amount" id="amount" class="formItem" placeholder="Ingrese la cantidad" min="0.01" step="0.01"  />
+                </div>
+
+                <div>
+                    <label>Método de Pago:</label>
+                    <select name="estadoC" id="estadoC" class="formItem" >
+                        <option value="0">Seleccione..</option>
+                        <option value="1">Tarjeta de Crédito</option>
+                        <option value="2">PayPal</option>
+                        <option value="3">Transferencia Bancaria</option>
+                        <option value="4">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Comentarios</label> <br>
+                    <textarea class="form-control" id="texto" rows="4" cols="50" class="formItem">
+                        
+                    </textarea>
+                </div>
+                <div class="text-center">
+                    <input type="submit" name="btnDonar" class="btn btn-primary" value="Donar">
+                    <input type="reset" class="btn btn-primary" value="Cancelar">
+               </div>
+               <div class="success-message" id="donation-success-message" style="display: none;">Su donación se ha hecho exitosamente.</div>
+               
+
+            </form>
+        </main>
+
+            <footer>
+                <div class="contact">
+                    <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+                    <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+                </div>
+            </footer>
+
+
+<script type="text/javascript">
+    var form = document.querySelector("#formFunciones");
+    document.formFunciones.addEventListener('submit', validar);
+    
+
+    function validar(event) {
+        var resultado = true;
+        var txtNombres = document.formFunciones.nombres;
+        var txtTelefono = document.getElementById("telefono");
+        var txtemail = document.getElementById("correo");
+        var txtCantidad = document.getElementById("amount");
+        var selectEstado = document.getElementById("estadoC");
+        var chkSuscrip = document.getElementById("suscripcion");
+        var checkboxsSuscripcion = document.querySelectorAll(".sus");
+        
+
+        var letra = /^[a-z ,.'-]+$/i;
+        var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        var numeroreg = /^[0-9]{10}$/g;
+        var telefonoreg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+
+        
+
+        limpiarMensajes();
+        
+
+        //validacion para nombres
+        if (txtNombres.value === '') {
+            resultado = false;
+            mensaje("Nombre es requerido", txtNombres);
+
+        } else if (!letra.test(txtNombres.value)) {
+            resultado = false;
+            mensaje("Nombre solo debe contener letras", txtNombres);
+        } else if (txtNombres.value.length > 20) {
+            resultado = false;
+            mensaje("Nombre maximo 20 caracteres", txtNombres);
+        }
+
+        //validacion telefono
+        if (txtTelefono.value === "") {
+            resultado = false;
+            mensaje("Telefono es requerido", txtTelefono);
+
+        } else if (!telefonoreg.test(txtTelefono.value)) {
+            resultado = false;
+            mensaje("Telefono debe ser de 10 digitos", txtTelefono);
+        } else if (!numeroreg.test(txtTelefono.value)) {
+            resultado = false;
+            mensaje("Telefono debe iniciar con 0", txtTelefono);
+        }
+
+        //validacion email
+        if (txtemail.value === "") {
+            resultado = false;
+            mensaje("Email es requerido", txtemail);
+        } else if (!correo.test(txtemail.value)) {
+            resultado = false;
+            mensaje("Email es incorrecto", txtemail);
+        }
+
+         //validacion cantidad
+         if (txtCantidad.value === "") {
+            resultado = false;
+            mensaje("Cantidad es requerida", txtCantidad);
+         }
+        //validacion select
+        if (selectEstado.value === null || selectEstado.value === '0') {
+        resultado = false;
+        mensaje("Debe seleccionar un metodo de pago", selectEstado);
+         }
+        //validacion de varios checkbox
+        let cont = 0;
+        let organizacionessinfinesdelucroChecked = false;
+        let saludChecked = false;
+        let escuelasChecked = false;
+
+        for (let i = 0; i < checkboxsSuscripcion.length; i++) {
+            if (checkboxsSuscripcion[i].checked) {
+                cont++;
+                if (checkboxsSuscripcion[i].value == "1") {
+                    organizacionessinfinesdelucroChecked = true;
+                } else if (checkboxsSuscripcion[i].value == "2") {
+                    saludChecked = true;
+                } else if (checkboxsSuscripcion[i].value == "3") {
+                    escuelasChecked = true;
+                }
+            }
+        }
+
+        // Validación 1: Selección de al menos una opción
+        if (cont < 1) {
+            resultado = false;
+            mensaje("Seleccione al menos una opción", checkboxsSuscripcion[0]);
+        }
+
+        // Validación 2: Si "Escuelas" está seleccionado, "organizaciones sin fines de lucro" también debe estarlo
+        if (escuelasChecked && !organizacionessinfinesdelucroChecked) {
+            resultado = false;
+            mensaje("Si selecciona Escuelas, también debe seleccionar organizaciones sin fines de lucro", checkboxsSuscripcion[2]);
+        }
+
+        // Validación 3: No permitir seleccionar tanto "organizaciones sin fines de lucro" como "Salud" simultáneamente
+        if (organizacionessinfinesdelucroChecked && saludChecked) {
+            resultado = false;
+            mensaje("No puede seleccionar tanto organizaciones sin fines de lucro como Salud simultáneamente", checkboxsSuscripcion[0]);
+        }
+
+        if (resultado) {
+            mostrarMensajeCheckbox();
+        } else {
+            event.preventDefault();
+        }
+        
+    }
+
+    function mensaje(cadenaMensaje, elemento) {
+        elemento.focus();
+        var nodoPadre = elemento.parentNode;
+        var nodoMensaje = document.createElement("span");
+        nodoMensaje.textContent = cadenaMensaje;
+        nodoMensaje.className = "mensajeError";
+        nodoPadre.appendChild(nodoMensaje);
+        
+    }
+
+    function limpiarMensajes() {
+        var mensajes = document.querySelectorAll(".mensajeError");
+        for (let i = 0; i < mensajes.length; i++) {
+            mensajes[i].remove();
+        }
+    }
+
+    function mostrarMensajeCheckbox() {
+    let checkboxSelectionText = document.getElementById("checkboxSelectionText");
+    checkboxSelectionText.textContent = ""; 
+
+        let selectedChecks = [];
+        let checkboxsSuscripcion = document.querySelectorAll(".sus");
+
+        for (let i = 0; i < checkboxsSuscripcion.length; i++) {
+            if (checkboxsSuscripcion[i].checked) {
+                selectedChecks.push(checkboxsSuscripcion[i].value);
+            }
+        }
+
+        if (selectedChecks.length > 0) {
+            checkboxSelectionText.textContent = "Servicios seleccionados: " + selectedChecks.join(", ");
+        }
+    }
+
+    function guardarDatos(event) {
+            event.preventDefault();
+            var datos = new FormData(document.getElementById("formFunciones"));
+            limpiarMensajes();
+            mostrarMensajeCheckbox();
+    }
+
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+            

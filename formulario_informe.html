@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Angel Emmanuel Suarez Cedeño">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <title>Informe de impacto social</title>
+    
+    <style>
+        #contenedorPrincipal {
+            width: 100%;
+            height: 100%;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-content {
+            width: 100%;
+            max-width: 700px;
+            background-color: #fff;
+            padding: 30px;
+            text-align: left;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .form-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            text-align: center;
+        }
+
+        .input-group label {
+            text-align: left;
+            color: #333;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: #f9f9f9;
+            border-radius: 8px;
+            outline: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #4CAF50;
+        }
+
+        .form-content h1::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            border-radius: 3px;
+            background: #4CAF50;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-field {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-field button {
+            flex-basis: 50%;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            height: 45px;
+            border-radius: 8px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 0.3s;
+            padding: 10px;
+        }
+
+        .btn-field button:hover {
+            background-color: #388E3C;
+        }
+
+        .mensajeError {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .imagen {
+            margin-top: 1%;
+            border: 2px dashed #ccc;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background-color: #f9f9f9;
+        }
+
+        .imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html" class="active">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html" class="active2">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contenedorPrincipal">
+        <div class="form-content">
+            <h1 id="titulos">Creación de Informe de Impacto</h1>
+            <form id="fromFunciones" name="formFunciones">
+                <div class="input-group">
+                    <div class="input-field" id="nombreInput">
+                        <div>
+                            <label>Título del informe:</label>
+                            <input type="text" name="titulo" id="titulo" >
+                        </div>
+                        
+                        <div>
+                            <label>Descripción del proyecto:</label>
+                            <textarea id="text1" class="texto"></textarea>
+                        </div>
+
+                        <div>
+                            <label>Fecha de inicio:</label>
+                            <input type="date" name="fecha" id="fecha1">
+                        </div>
+
+                        <div>
+                            <label>Fecha de fin:</label>
+                            <input type="date" name="fecha" id="fecha2">
+                        </div>
+                        <div>
+                            <label>Resultados obtenidos:</label>
+                            <textarea id="text2" class="texto"></textarea>
+                        </div>
+
+                        <div>
+                            <label>Impactos Esperados:</label>
+                            <br>
+                            <input style="width: auto;" type="radio" id="economicos" name="impacto" value="Económicos">
+                            <label class="lb" for="economicos">Económicos</label>
+                            
+                            <input style="width: auto;" type="radio" id="sociales" name="impacto" value="Sociales">
+                            <label class="lb" for="sociales">Sociales</label>
+                            
+                            <input style="width: auto;" type="radio" id="ambientales" name="impacto" value="Ambientales">
+                            <label class="lb" for="ambientales">Ambientales</label>
+                        </div>
+                        
+                        <div>
+                            <label>Seleccione una imagen (opcional): </label>
+                            <input type="file" name="imagen" id="imagen" accept="image/*" class="inputfile" onchange="cargarImagen(event)">
+                            <div class="imagen">
+                                <img src="#" alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="btn-field">
+                    <button id="registrar" name="enviar" type="submit">Registrar Informe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+    <script>
+        let form = document.getElementById("fromFunciones");
+        form.addEventListener('submit', validar);
+        function validar(event){
+            var resultado = true;
+            let txtTitulo = document.forms['formFunciones']['titulo'];
+            let txtFecha = document.getElementById("fecha1");
+            let txtFecha2 = document.getElementById("fecha2");
+            let radioImpacto = document.getElementsByName("impacto");
+            let txtArea1 = document.getElementById("text1");
+            let txtArea2 = document.getElementById("text2");
+            limpiarMensajes();
+            
+            //validar titulo del informe
+            if(txtTitulo.value === ''){
+                resultado = false;
+                mensaje("Ingrese un titulo", txtTitulo);
+            }else if (txtTitulo.value.length > 50){
+                resultado = false;
+                mensaje("El tamaño del titulo no muede ser mayor a 50 caracteres", txtTitulo);
+            }else if(txtTitulo.value.length < 10){
+                resultado = false;
+                mensaje("El tamaño del titulo no muede ser menor a 10 caracteres", txtTitulo);
+            }
+            //Validar txt
+            if(txtArea1.value === ''){
+                resultado = false;
+                mensaje("Ingrese una descripcion para el proyecto", txtArea1);
+            }
+
+            if(txtArea2.value === ''){
+                resultado = false;
+                mensaje("Ingrese los resultados del proyecto", txtArea2);
+            }
+
+            // Validar fecha 1
+            var dato = txtFecha.value
+            var fechaN = new Date(dato);
+            var anioN = fechaN.getFullYear();
+            var fechaActual = new Date();
+            var anioA = fechaActual.getFullYear();
+            if(fechaN > fechaActual){
+                resultado = false;
+                mensaje("La fecha ingresada no puede ser superio a la fecha actual", txtFecha);
+            }else if (txtFecha.value === ''){
+                resultado = false;
+                mensaje("Ingrese una fecha de inicio de proyecto", txtFecha);
+            }
+
+            // Validar fecha 2
+            var dato2 = txtFecha2.value
+            var fechaN2 = new Date(dato2);
+            var anioN2 = fechaN2.getFullYear();
+            var fechaActual = new Date();
+            var anioA = fechaActual.getFullYear();
+            if(fechaN2 > fechaActual){
+                resultado = false;
+                mensaje("La fecha ingresada no puede ser superio a la fecha actual", txtFecha2);
+            }else if (txtFecha2.value === ''){
+                resultado = false;
+                mensaje("Ingrese una fecha de fin de proyecto", txtFecha2);
+            }
+
+            if(txtFecha.value > txtFecha2.value){
+                resultado = false;
+                mensaje("La fecha de fin no puede ser menor que la fecha de inicio", txtFecha2);
+            }
+
+            // validar radios Impactos
+            let sel = false;
+            for (let i = 0; i < radioImpacto.length; i++) {
+            if (radioImpacto[i].checked) {
+                sel = true;
+                let res = radioImpacto[i].value;
+                break;
+            }
+            }
+            if(!sel){
+                resultado = false;
+                mensaje("Debe seleccionar una de las opciones mostradas", radioImpacto[0]);
+            }
+
+            if (!resultado) {
+                event.preventDefault();
+            }
+
+        }
+
+        function mensaje(cadenaMensaje, elemento) {
+            elemento.focus();
+            var nodoPadre = elemento.parentNode; 
+            var nodoMensaje = document.createElement("span");
+            nodoMensaje.textContent = cadenaMensaje;
+            nodoMensaje.className = "mensajeError";
+            nodoPadre.appendChild(nodoMensaje);
+            nodoMensaje.style.display = 'block';
+            
+        }
+        
+        function limpiarMensajes() {
+            var mensajes = document.querySelectorAll(".mensajeError");// retorna un arreglo
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();// remueve o elimina un elemento de mi doc html
+            }
+
+        }
+        
+        function cargarImagen(event){
+            let leer = new FileReader();
+
+            leer.onload = function(){
+                let imagen = document.querySelector('.imagen img');
+                imagen.src = leer.result;
+            }
+            leer.readAsDataURL(event.target.files[0]);
+        }
+
+    </script>
+</body>
+</html>
+

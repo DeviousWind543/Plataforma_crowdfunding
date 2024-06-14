@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Directriz 1: Tener el nombre completo del integrante que realiza la página, agregarlo con la etiqueta meta de autor -->
+    <meta name="author" content="Carrion Chea Michael">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Seguimiento del Progreso</title>
+    <!-- Directriz 5: Hoja de estilo externa -->
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+        /* Directriz 5: Hoja de estilo interna */
+        /* Estilos para los botones */
+        .filter-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-button:hover {
+           background-color: #45a049;
+        }
+
+        .filter-button.active {
+            background-color: #45a049; /* Color de fondo diferente cuando está activo */
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            flex-wrap: wrap;
+        }
+        .main-content {
+            flex: 0 0 calc(70% - 20px);
+        }
+        .sidebar {
+            flex: 0 0 calc(30% - 20px);
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        .campaña {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .campaña:hover {
+            transform: scale(1.05);
+        }
+        .campaña img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .main-content, .sidebar {
+                flex: 0 0 100%;
+            }
+            .sidebar {
+                order: 2;
+                margin-top: 20px;
+            }
+            .grid-container {
+                order: 1;
+            }
+        }
+        /* Directriz 6: Utilizar todos los tipos de selectores CSS revisados en clase  */
+        /* Selector de ID */
+        #inicio {
+            margin: 20px 0;
+        }
+
+        
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        /* Pseudo-clase */
+        .campaña:hover {
+            transform: scale(1.05);
+        }
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .grid-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Float */
+        .float-container {
+            overflow: auto;
+        }
+        .float-item {
+            float: left;
+            width: 45%;
+            margin: 2.5%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el formulario */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .form-container h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para las tarjetas de sugerencias */
+        .suggestion-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+        .suggestion-card h4 {
+            margin: 0 0 10px;
+            color: #4CAF50;
+        }
+        .suggestion-card p {
+            margin: 0 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Directriz 2: Contener al menos los elementos semánticos header, nav, section, footer -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html" class="active">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+      
+    <main>
+        <!-- Directriz 2: Contener elementos semánticos section -->
+        <div class="content">
+            <div class="main-content">
+                <section id="inicio">
+                    <h2>Seguimiento del Progreso</h2>
+                    <p>El seguimiento del progreso en proyectos sociales es crucial para asegurar que se cumplan los objetivos y se maximice el impacto positivo. Monitorear cada etapa permite realizar ajustes oportunos, mejorar la eficiencia y garantizar la transparencia, lo que fortalece la confianza de todos los involucrados y contribuye al éxito sostenible del proyecto.</p>
+                </section>
+                <section id="campañas">
+                    <h2>Campañas Realizadas</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-button" data-filter="todos">Todos</button>
+                        <button class="filter-button" data-filter="Social">Social</button>
+                        <button class="filter-button" data-filter="educacion">Educación</button>
+                        <button class="filter-button" data-filter="reforestacion">Reforestación</button>
+                    </div>
+                    <article class="campaña" data-tipo="Social">
+                        <h3>Proyecto 1: Construcción de un Pozo de Agua</h3>
+                        <img src="Img/imagen1.jpg" alt="Imagen del Proyecto 1">
+                        <p>La construcción de un pozo de agua asegura una fuente sostenible de agua potable, mejorando la calidad de vida y fomentando el desarrollo comunitario.</p>
+                    </article>
+                    <article class="campaña" data-tipo="educacion">
+                        <h3>Proyecto 2: Educación para Niños</h3>
+                        <img src="Img/imagen2.jpg" alt="Imagen del Proyecto 2">
+                        <p>La educación para niños es la clave para un futuro mejor. Ayuda a proporcionar recursos educativos y un ambiente de aprendizaje seguro.</p>
+                    </article>
+                    <article class="campaña" data-tipo="reforestacion">
+                        <h3>Proyecto 3: Reforestación</h3>
+                        <img src="Img/imagen3.jpg" alt="Imagen del Proyecto 3">
+                        <p>Reforestar es sembrar vida y esperanza para un planeta más verde y saludable.</p>
+                    </article>
+                </section>
+                
+                <section id="informacion">
+                    <h2>Información Adicional</h2>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h3>¿Qué Ofrecemos?</h3>
+                            <p>"FutureGo brinda una experiencia única y amigable, facilitando el financiamiento colaborativo y el acceso a recursos esenciales para el éxito de diversos proyectos, conectando donantes con causas significativas y generando un impacto positivo en la sociedad."</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>Impacto</h3>
+                            <p>En FutureGo, estamos comprometidos con la transparencia y la eficacia. Nuestro objetivo es maximizar el impacto positivo de cada proyecto, asegurando que cada donación se traduzca en mejoras tangibles y sostenibles para las comunidades beneficiadas.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>Objetivo</h3>
+                            <p>Nuestro objetivo en FutureGo es empoderar a las comunidades y catalizar el cambio social positivo a través del financiamiento colectivo, permitiendo que ideas innovadoras y proyectos cruciales se hagan realidad y mejoren vidas.</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>Monitoreo</h3>
+                            <p>El monitoreo constante de nuestros proyectos asegura la correcta utilización de los recursos, fomenta la transparencia y permite realizar ajustes necesarios para maximizar el impacto positivo y alcanzar los objetivos propuestos.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formulario para sugerencias -->
+                <section id="sugerencias" class="form-container">
+                    <h3>Envía tus Sugerencias</h3>
+                    <form id="sugerenciasForm">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="sugerencia">Sugerencia:</label>
+                        <textarea id="sugerencia" name="sugerencia" rows="5" required></textarea>
+
+                        <input type="submit" value="Enviar">
+                    </form>
+                </section>
+
+                <!-- Sección para mostrar las sugerencias -->
+                <section id="sugerencias-list">
+                    <h2>Sugerencias Recibidas</h2>
+                    <div id="suggestion-cards-container">
+                        <!-- Las sugerencias se mostrarán aquí como tarjetas -->
+                    </div>
+                </section>
+
+            </div>
+            
+            <!-- Elemento HTML 3: aside -->
+            <aside class="sidebar">
+                <h3>Alianzas</h3>
+                <!-- Elemento HTML 4: ul -->
+                <ul>
+                    <!-- Elemento HTML 5: li -->
+                    <li><a href="https://www.who.int/es/news-room/fact-sheets/detail/drinking-water">Importancia del Agua Potable</a> - Información de la Organización Mundial de la Salud sobre el acceso al agua potable y su impacto en la salud.</li>
+                    <li><a href="https://www.unicef.org/education">Educación Infantil</a> - UNICEF destaca la importancia de la educación infantil y cómo afecta el desarrollo de los niños.</li>
+                    <li><a href="https://www.worldwildlife.org/initiatives/forests">Reforestación y Conservación</a> - La WWF proporciona recursos y proyectos sobre la reforestación y conservación de bosques.</li>
+                </ul>
+                <h3>En gestión y más</h3>
+                <p>• Alimentación Saludable: La Organización Mundial de la Salud (OMS) y la FAO ofrecen recursos sobre la importancia de una alimentación balanceada y sus beneficios para la salud.</p>
+                <p>• Cambio Climático: El Panel Intergubernamental sobre Cambio Climático (IPCC) proporciona informes científicos clave sobre el cambio climático, sus impactos y posibles soluciones.</p>
+                <p>• Derechos Humanos: Amnistía Internacional y Human Rights Watch son organizaciones dedicadas a la protección y promoción de los derechos humanos en todo el mundo, ofreciendo información sobre casos actuales y formas de involucrarse.</p>
+                <p>• Desarrollo Sostenible: La Agenda 2030 de las Naciones Unidas y los Objetivos de Desarrollo Sostenible (ODS) ofrecen un marco global para abordar los desafíos sociales, económicos y ambientales más apremiantes.</p>
+                <p>• Salud Mental: La Organización Mundial de la Salud (OMS) y la Fundación Internacional de Salud Mental ofrecen recursos sobre la importancia de la salud mental, cómo mantenerla y dónde buscar ayuda en caso de necesidad.</p>
+                <p>• Tecnología Educativa: Organizaciones como UNESCO y EdTechX Holdings ofrecen recursos sobre el uso de la tecnología en la educación y cómo puede mejorar el acceso y la calidad de la enseñanza.</p>
+                <p>• Empoderamiento de la Mujer: ONU Mujeres y Plan International trabajan en la promoción de la igualdad de género y el empoderamiento de las mujeres y las niñas en todo el mundo.</p>
+                <p>• Prevención de Enfermedades: Los Centros para el Control y la Prevención de Enfermedades (CDC) ofrecen información actualizada sobre enfermedades, vacunas y medidas de prevención.</p>
+                <p>• Desarrollo Económico: El Banco Mundial y el Fondo Monetario Internacional proporcionan datos, análisis y recomendaciones sobre políticas económicas y desarrollo global.</p>
+            </aside>
+        </div>
+    </main>
+    <!-- Directriz 2: Contener elemento semántico footer -->
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+    <script>  
+    // Esperar a que el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+        
+            // Agregar evento click a cada botón de filtro
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = button.dataset.filter;
+                    filterCampaigns(filterValue);
+                });
+            });
+        });
+        
+        // Función para filtrar las campañas
+        function filterCampaigns(filter) {
+            const campañas = document.querySelectorAll('.campaña');
+        
+            campañas.forEach(campaña => {
+                const tipo = campaña.dataset.tipo;
+        
+                // Mostrar o esconder la campaña según el filtro seleccionado
+                if (filter === 'todos' || tipo === filter) {
+                    campaña.style.display = 'block';
+                } else {
+                    campaña.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script>
+        document.getElementById('sugerenciasForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener los datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const sugerencia = document.getElementById('sugerencia').value;
+
+            // Crear una nueva tarjeta de sugerencia
+            const suggestionCard = document.createElement('div');
+            suggestionCard.className = 'suggestion-card';
+            suggestionCard.innerHTML = `
+                <h4>${nombre}</h4>
+                <p><strong>Email:</strong> ${email}</p>
+                <p>${sugerencia}</p>
+            `;
+
+            // Agregar la tarjeta a la lista de sugerencias
+            document.getElementById('suggestion-cards-container').appendChild(suggestionCard);
+
+            // Limpiar el formulario
+            document.getElementById('sugerenciasForm').reset();
+        });
+    </script>
+</body>
+</html>

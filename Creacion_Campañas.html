@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luis Alberto Iñiguez Pozo">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Crear Campaña</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+        
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], input[type="file"], textarea, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            display: none;
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            display: none;
+            color: green;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html" class="active">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Crear Nueva Campaña</h2>
+            <form id="crear-campana-form">
+                <div class="form-group">
+                    <label for="title">Nombre de la Campaña:</label>
+                    <input type="text" id="title" name="title" placeholder="Escribe el nombre aquí" required>
+                    <div class="error-message">Por favor, ingrese un nombre válido.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" name="description" placeholder="Escribe la descripción aquí" rows="6" required></textarea>
+                    <div class="error-message">Por favor, ingrese una descripción válida.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="goal">Meta de Financiación:</label>
+                    <input type="number" id="goal" name="goal" placeholder="Escribe la meta aquí" required>
+                    <div class="error-message">Por favor, ingrese una meta válida.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Categoría:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Seleccione una categoría</option>
+                        <option value="education">Educación</option>
+                        <option value="health">Salud</option>
+                        <option value="environment">Medio Ambiente</option>
+                    </select>
+                    <div class="error-message">Por favor, seleccione una categoría.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Imagen de Campaña:</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+
+                <button id="create-campaign-btn">Crear Campaña</button>
+                <div class="success-message" id="success-message">La campaña se ha creado exitosamente.</div>
+                <div class="error-message" id="error-message">Por favor, complete todos los campos.</div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('create-campaign-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            var title = document.getElementById('title').value;
+            var description = document.getElementById('description').value;
+            var goal = document.getElementById('goal').value;
+            var category = document.getElementById('category').value;
+
+            if (!title || !description || !goal || !category) {
+                document.getElementById('error-message').style.display = 'block';
+                return;
+            }
+
+            var campaigns = JSON.parse(localStorage.getItem('campaigns')) || [];
+            var campaign = {
+                title: title,
+                description: description,
+                goal: goal,
+                category: category,
+                image: document.getElementById('image').files[0] ? document.getElementById('image').files[0].name : ''
+            };
+
+            campaigns.push(campaign);
+            localStorage.setItem('campaigns', JSON.stringify(campaigns));
+
+            document.getElementById('success-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+

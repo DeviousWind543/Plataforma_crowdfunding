@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vargas Sancan Kerly Solange">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Donaciones</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+<style>
+
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .grid-container h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        
+
+        /* Contenedor principal utilizando Grid */
+        .contenedor {
+            display: grid; /* Maquetación Grid */
+            grid-template-columns: 4fr;
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 20px;
+            background-color: #faf1f1; /* Fondo del contenedor principal */
+            border-radius: 8px;
+        }
+        
+        .capta, .historia,.contenedor{
+           
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .historia, .capta, .fotos_empresas,.cat {
+            background-color: #fff9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+      
+        
+        /* Grid para pantallas más grandes */
+        @media (min-width: 768px) {
+            .contenedor {
+                grid-template-columns: 4fr 3fr; 
+            }
+        }
+        
+        /* Ejemplo de uso de Float */
+        .categoria, .propiedad_imagen{
+            float: left; /* Maquetación Float a la izquierda */
+            margin-top: 10px;
+        }
+        
+        .categoria {
+            width: 100%;
+        }
+        
+        .propiedad_imagen {
+            width: 100%;
+            margin: auto;
+        }
+        .info_imagen{
+            display: flex ;
+
+        }
+        @media (max-width: 800px) {
+            .info_imagen{
+                flex-direction: column-reverse;
+            }
+        }
+        
+        
+        /* Uso de Flexbox para Información Adicional */
+        .empresa {
+            display: flex; /* Maquetación Flexbox */
+            
+            gap: 0px;
+        }
+        
+        .fotos_empresas {
+            flex: 1 1 calc(50% - 40px); /* Ajuste flexible de los elementos */
+        }
+        /*selector por elemento*/
+h3{
+    color: rgb(38, 59, 96);
+    font-size: 20pt;
+}
+
+h2{
+    background-color: #faf1f1;
+
+    padding: 1px 10px; /* top,bottom  left,right*/
+    padding: 0px 5px 10px 20px; /*top rigth bottom left*/
+    padding-left: 25px;
+    margin: 10px 20px;
+    margin-right: 50px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+
+}
+/*Selector por clase*/
+h2{
+    color: rgb(12, 103, 116);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+
+/*selecciona todos los hermanos */
+ ul li:first-child{
+    color:#2bdc63;
+}
+
+li::selection{
+    background-color: aqua;
+    color:rgb(63, 63, 163);
+
+
+}
+/*Selector combianador o contextual (espacio)*/
+/*combiandor  hijos (>)*/
+div>liv,a{ /*selector combiandor hijos*/
+    border: none;
+    text-decoration: underline;
+}
+
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html" class="active">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="contenedor">
+        <section class="cat">
+            <div><h2>Sección 1 - Categorías</h2></div>
+                <div class="categoria">   
+                    <ul>
+                        <li> Recaudación de fondos Política</li>
+                        <li> Recaudación de fondos para Salud</li>
+                        <li> Recaudación de fondos para organizaciones sin fines de lucro</li>
+                        <li> Recaudación de fondos para Escuelas</li>
+                        <li> Recaudación de fondos de Caridad</li>
+                        
+                    </ul>   
+                </div>
+        </section>
+    
+        <section class="capta">
+            <h2>Sección 2 - Conoce a Nuestros Captadores:</h2>
+            <img src="Img/cap.png" alt="Imagen " style="width: 200px; border-radius: 8px; display: block; margin: 0 auto;">
+               
+        <p>Nuestros captadores nunca solicitan claves ni códigos de seguridad de tarjetas
+                de débito o de tarjetas de crédito.</p>
+        </section>
+       
+       
+        <section class="historia">
+            <h2>Sección 3 - Historias con Éxito</h2>
+            <div class="historia">  
+                <details>
+                  <summary><strong>Historia 1: Santuario para los animales</strong></summary>
+                  <img src="Img/Santuario.png" alt="Imagen " style="width: 200px; border-radius: 8px; display: block; margin: 0 auto;"> 
+                  <p>Paola hizo de los animales su prioridad. Por eso decidió crear una campaña en GoFundMe para construir un centro de rescate para animales 
+                    salvajes donde pudieran vivir dignamente y en un entorno virgen rodeado
+                     de bosques y praderas. Alcanzó más de setenta y dos mil euro y
+                      fundó la Reserva Wild Forest.</p>
+                
+                </details>
+              </div>
+
+              <div class="historia">  
+                <details>
+                  <summary><strong>Historia 2: Maratón Solidario en Sierra Leona</strong></summary>
+                  <img src="Img/Maraton.png" alt="Imagen " style="width: 200px; border-radius: 8px; display: block; margin: 0 auto;">
+                  <p>Street Child  empezó a trabajar en Sierra Leona en 2008 con un
+                    número reducido de niños y niñas de la calle. Desde entonces han
+                     ayudado a más de 100.000 niños a volver a la escuela. La carrera no es el fin sino el medio.El objetivo es recaudar fondos para ayudar a los niños afectados por el 
+                     ébola así como a sus familias.</p>
+                
+                </details>
+              </div>    
+
+              <div class="historia">  
+                <details>
+                  <summary><strong>Historia 3: Camino de Santiago sobre Ruedas</strong></summary>
+                  <img src="Img/Camina" alt="Imagen " style="width: 200px; border-radius: 8px; display: block; margin: 0 auto;">
+                  <p>La historia de éxito que se propuso recaudar dinero para hacer posible que personas 
+                    con movilidad reducida hiciesen el Camino de Santiago y que consiguió recaudar más 
+                    de 7.000€ en 5 meses.</p>
+                
+                </details>
+              </div>   
+              
+              <div class="historia">  
+                <details>
+                  <summary><strong>Historia 4: Jóvenes dentistas creando sonrisas en Filipinas</strong></summary>
+                  <img src="Img/Denti.png" alt="Imagen " style="width: 200px; border-radius: 8px; display: block; margin: 0 auto;">
+                  <p>Enseñar a los niños y responsables de la fundación la importancia de la prevención de la 
+                    salud dental y darles así herramientas para que ellos mismos sean capaces de aplicarlo
+                     en el entorno donde viven. Una campaña que se propuso recaudar 3.500€ y ya ha
+                      llegado a los 4.121€.</p>
+                
+                </details>
+              </div>    
+    
+            
+        </section>
+        
+        <div class="empresa">
+            <section class="fotos_empresas">
+                <h2 >Sección 4 - Apoyo de empresas</h2>
+                <ol>
+                    <li><a href="https://www.nestle.com.ec/es">Nestlé Ecuador</a></li>
+                    <li><a href="https://www.pronaca.com/">Pronaca</a></li>
+                    <li><a href="https://www.spe-ecuador.org/node/362">Repsol Ecuador</a></li>
+                    <li><a href="https://logowik.com/produbanco-logo-vector-37631.html">Banco Produbanco</a></li>
+            
+                </ol>
+                
+                <figure> 
+                    <img src="Img/Nest.jfif" alt="Imagen " style="width: 300px; border-radius: 8px; display: block; margin: 0 auto;"> 
+                    <figcaption>Fig. 2 - Nestle.</figcaption>
+                 </figure> 
+                 <figure> 
+                    <img src="Img/Pronaca.png" alt="Imagen " style="width: 280px; border-radius: 8px; display: block; margin: 0 auto;">
+                    <figcaption>Fig. 3 - Pronaca.</figcaption>
+                 </figure> 
+                 <figure> 
+                    <img src="Img/Banc.png" alt="Imagen " style="width: 300px; border-radius: 8px; display: block; margin: 0 auto;">
+                    <figcaption>Fig. 4 - Banco Produbanco.</figcaption>
+                 </figure> 
+                
+            </section>      
+        </div>
+
+    </main>
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

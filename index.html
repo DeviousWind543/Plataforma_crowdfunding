@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Torres Beltrán Aarón Ignacio">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Plataforma de crowdfunding para proyectos sociales</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+
+/* Selector de clase */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Selector de clase */
+.main-content {
+    flex: 0 0 calc(70% - 20px);
+}
+
+/* Selector de clase */
+.sidebar {
+    flex: 0 0 calc(30% - 20px);
+    margin-left: 20px;
+    margin-top: 20px;
+    background: #eee;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Selector de clase */
+.section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Selector de clase */
+.section h4 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+/* Selector de clase */
+.section p {
+    font-style: italic;
+}
+
+/* Selector de clase */
+.section img {
+    width:100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Selector de clase */
+.opinions {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Selector de clase */
+.opinion {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Selector de clase */
+.opinion strong {
+    display: block;
+    color: #333;
+}
+
+
+/* Selector de clase */
+.link a:hover {
+    color: rgb(11, 245, 11);
+}
+
+/* Selector de clase */
+.section img {
+    border: 5px solid #4CAF50; 
+}
+
+/* Selector de elemento */
+h4{
+    font-weight: bold;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <header class="header-wrapper">
+        <div class="heart-section">
+            <div class="heart-content">
+                <img src="Img/Logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+                <h3>Dirigidos a proyectos sociales</h3>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-content">
+            <section class="section">
+                <h4>ACERCA DE NOSOTROS</h4>
+                <img src="img/AcercaD.jpg" alt="Acerca De nosotros" height="200" width="200">
+                <p>Somos una empresa que permite a usuarios de diferentes partes del mundo crear sus propios crowdfunding con la intención de darles la oportunidad a diferentes personas que buscan ayudar de manera segura.</p>
+            </section>
+
+            <section class="section">
+                <h4>Objetivo</h4>
+                <img src="img/objetivo.jpg" alt="Objetivo" height="200" width="200">
+                <p>Nuestro objetivo es llegar a cada rincón del mundo que necesite ayuda y a quienes deseen ayudar, asegurando que sus fondos estén seguros y dándoles la libertad de crear sus propias campañas y promocionarlas.</p>
+            </section>
+
+            <section class="section">
+                <h4>Crowdfunding para recuperar y reparar The Mud House Studio</h4>
+                <img src="img/Fondos.jpg" alt="Fondo" height="200" width="200">
+                <p>Se realizó un crowdfunding para reparar la famosa Mud House Studio.</p>
+                <details>
+                    <summary>Dale click para veisualizar más información</summary>
+                    <p>The Mud House Studio, un centro de arte y cultura en San José de Chimbo, Ecuador, necesita tu ayuda para recuperarse de un incendio en 2023.
+
+                        El incendio destruyó gran parte del estudio y dañó el equipo y las obras de arte. Se necesitan $10,000 para reparar la estructura, reemplazar los materiales dañados y comprar nuevos.
+                        
+                        The Mud House Studio ofrece un espacio para que los artistas locales puedan crear, exhibir y vender su trabajo. También brinda talleres y clases para la comunidad.
+                        
+                        Tu donación puede ayudar a que el estudio continúe siendo un recurso vital para la comunidad.</p>
+                  </details>
+               
+            </section>
+            <section class="section opinions">
+                <h4>Opiniones</h4>
+                <div class="opinion">
+                    <p><strong>Usuario:</strong> María Vergara</p>
+                    <p><strong>Comentario:</strong></p> 
+                    <p style="text-decoration: underline;"><em>Nos proporcionar ayuda para la colecta hacia las personas que lastimosamente perdieron sus casas a causa de las inundaciones en Ecuador.</em> </p>
+                </div>
+                <div class="opinion">
+                    <p><strong>Usuario:</strong> Jose Sánchez</p>
+                    <p><strong>Comentario:</strong></p>
+                    <p style="text-decoration: underline;"><u> Para ser la primera vez que uso un crowdfunding, aunque al principio desconfiaba, pero me ayudó demasiado en el momento que realmente estaba pasando por un problema de salud grave y necesitaba ayuda para los costosos médicamentos.</u></p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar"> 
+            <h2>Recomendaciones</h2>
+           
+            <ul class="link">
+                <li><a href="#">Artículo 1</a></li>
+                <br> 
+                <li><a href="#">Artículo 2</a></li>
+                <br>
+                <li><a href="#">Artículo 3</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+

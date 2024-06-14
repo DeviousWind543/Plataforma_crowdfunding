@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="Width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Angel Emmanuel Suarez Cedeño"/>
+        <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="./CSS/Styles.css">
+        <title>Informe de impacto social </title>
+        <style>
+            
+            aside img{
+                padding: 5px;
+                margin-right: 10px; 
+                width: 60px;
+                
+            }
+            
+            .titulo{
+                color:darkseagreen;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-align: center;
+            }
+            
+            .subtitulo{
+                color:darkseagreen;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+           
+            ul+img{
+                width: 300px;
+                height: 250px;
+            }
+           
+            #contenedorPrincipal {
+            width: 100%;
+            margin: auto;
+            border-radius: 5px;
+            background-color: rgb(238, 245, 220);
+            }
+            
+            m{
+                padding: 20px;
+                height: auto;
+            }
+
+            .elemen img{
+                margin-left: 20%;
+                border-radius: 35px;
+            }
+
+            .elemen {
+                border: 1px solid green;
+                border-radius: 10px;
+                padding: 10px;
+                min-width: 105px;
+                margin-left: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 50%;
+            }
+            
+            .secciones {
+            display: flex;
+            flex-wrap:nowrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items:stretch;
+            gap: 30px 30px;
+            margin: 12px;
+            }
+
+        </style>
+        <script>
+            function cambiar(imagen){
+                let img = document.querySelector("#datos img");
+                img.src="img/crowdfunding.png";
+            }
+    
+            function recuperar(imagen){
+                let img = document.querySelector("#datos img");
+                img.src="img/impacto.png";
+            }
+        </script>
+    
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                    <h1>FutureGo</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a>
+                            <ul>
+                                <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                            <ul>
+                                <li><a href="Listado.html">Campañas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Donación.html">Donaciones en Línea</a>
+                            <ul>
+                                <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Seguimiento.html">Seguimiento del Progreso</a>
+                            <ul>
+                                <li><a href="SEG2.html">Cuentanos tus experiencias</a></li>
+                                <li><a href="SEG1.html">Historias de Exito</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="informe.html" class="active">Informes de Impacto Social</a>
+                            <ul>
+                                <li><a href="formulario_informe.html">Crear informe</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div id="contenedorPrincipal">
+                <section class="secciones">
+                    <div style="width: 100%;" class="elemen">
+                        <h2 class="titulo">Impacto Social: Medimos el Cambio</h2>
+                        <p style="text-align: center;">Descubre cómo nuestras iniciativas están transformando vidas y comunidades.</p>
+                            <h3 class="subtitulo">¡Transformando Vidas, Construyendo Comunidades!</h3>
+                            <p>
+                                En nuestra plataforma, nos comprometemos a medir y compartir el impacto 
+                                positivo que generan los proyectos sociales financiados por nuestra 
+                                comunidad de donantes. Aquí presentamos los informes detallados que 
+                                muestran cómo tus contribuciones están marcando la diferencia en el 
+                                mundo.
+                            </p>
+                        <div id="datos">
+                            <img id="imagen1" onmouseenter="cambiar(this)" onmouseout="recuperar(this)"  class="elemen" src="img/impacto.png" alt="crowdfunding impacto social "
+                            style="border: none;">
+                        </div>
+                    </div>
+                </section>
+                <section class="secciones">
+                    <div class="elemen">
+                        <h2 class="titulo">Educación para Todos</h2>
+                        <p style="margin-left: 8px;">
+                            Descripción: Este proyecto proporciona acceso a 
+                            la educación a niños de comunidades rurales.
+                        </p>
+                        <br>
+                        <p>Resultados</p>
+                        <m>
+                            <li>Beneficiarios: 200 niños inscritos en la escuela primaria.</li>
+                            <li>
+                                Mejoras en la Retención Escolar: Aumento del 30% en la tasa 
+                                de retención escolar desde la implementación del proyecto.
+                            </li>
+                            <li>
+                                Logros Académicos: Mejora del 25% en los resultados académicos de
+                                los estudiantes.
+                            </li>
+                        </m>
+                        <img class="elemen" src="img/educacion.jpg" alt="niños estudiando"
+                         style="border: none;"
+                        >
+                    </div>
+                    
+                        <div class="elemen">
+                            <h2 class="titulo">Salud Materno-Infantil</h2>
+                        <p style="margin-left: 8px;">
+                            Descripción: Iniciativa para mejorar la atención 
+                            prenatal y neonatal en zonas desfavorecidas.
+                        </p>
+                        <br>
+                        <p>Resultados</p>
+                        <m>
+                            <li>Beneficiarios: 150 mujeres embarazadas y 100 recién nacidos.</li>
+                            <li>
+                                Reducción de la Mortalidad Infantil: Disminución del 40% en la 
+                                tasa de mortalidad neonatal.
+                            </li>
+                            <li>
+                                Acceso a Atención Médica: Aumento del 50% en el acceso a servicios de 
+                                atención médica materna.
+                            </li>
+                        </m>
+                        <img class="elemen" src="img/salud_materno_infantil.png" alt="salud materno infantil"
+                         style="border: none;"
+                        >
+                        </div>
+                    
+                </section>
+                <section class="secciones">
+                    <div style="width: 100%;"  class="elemen">
+                        <h3 class="subtitulo">Métricas de Impacto</h3>
+                        <m >
+                            <li><p>Número Total de Proyectos Financiados: 10 proyectos.</p></li>
+                            <li><p>Total de Fondos Recaudados: $50,000.</p></li>
+                            <li><p>Beneficiarios Directos: Más de 1,000 personas.</p></li>
+                            <li><p>Áreas de Impacto: Educación, Salud, Medio Ambiente.</p></li>
+                        </m>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="contact">
+                <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+                <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

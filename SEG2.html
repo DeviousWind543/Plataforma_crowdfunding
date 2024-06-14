@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Carrion Chea Michael">
+    <link rel="shortcut icon" href="./Img/Logo.png" type="image/x-icon">
+    <title>Cuentanos tu Historia</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <style>
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        form input[type="text"],
+        form select,
+        form textarea,
+        form button,
+        form input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+        }
+
+        form input[type="file"] {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        form textarea {
+            resize: vertical;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px 20px;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        fieldset legend {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        fieldset label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        fieldset label input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Logo de FutureGo" class="logo">
+                <h1>FutureGo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a>
+                        <ul>
+                            <li><a href="sesión.html">Iniciar Sesión / Registrase</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Creacion_Campañas.html">Creación de Campañas</a>
+                        <ul>
+                            <li><a href="Listado.html">Campañas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Donación.html">Donaciones en Línea</a>
+                        <ul>
+                            <li><a href="RegistroDonacion.html">Registrar Donacion</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguimiento.html" class="active">Seguimiento del Progreso</a>
+                        <ul>
+                            <li><a href="SEG2.html" class="active2">Cuentanos tus experiencias</a></li>
+                            <li><a href="SEG1.html">Historias de Exito</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="informe.html">Informes de Impacto Social</a>
+                        <ul>
+                            <li><a href="formulario_informe.html">Crear informe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+      
+    <main>
+        <form id="successStoryForm">
+            <h2>Formulario de Publicación de Historia de Éxito</h2>
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="author">Autor:</label>
+            <input type="text" id="author" name="author" required>
+            
+            <label for="category">Categoría:</label>
+            <select id="category" name="category" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="educacion">Educación</option>
+                <option value="salud">Salud</option>
+                <option value="emprendimiento">Emprendimiento</option>
+                <option value="superacion_personal">Superación Personal</option>
+                <option value="otro">Otro</option>
+            </select>
+            
+            <label for="content">Contenido:</label>
+            <textarea id="content" name="content" rows="6" required></textarea>
+            
+            <label for="images">Imágenes (opcional):</label>
+            <input type="file" id="images" name="images" accept="image/*" multiple>
+            
+            <label for="publishedDate">Fecha de Publicación:</label>
+            <input type="date" id="publishedDate" name="publishedDate" required>
+            
+            <fieldset>
+                <legend>Valoración:</legend>
+                <label><input type="radio" name="rating" value="excelente"> Excelente</label>
+                <label><input type="radio" name="rating" value="bueno"> Bueno</label>
+                <label><input type="radio" name="rating" value="regular"> Regular</label>
+                <label><input type="radio" name="rating" value="mejorable"> Mejorable</label>
+            </fieldset>
+            
+            <label>
+                <input type="checkbox" id="featured" name="featured">
+                Destacar esta historia
+            </label>
+            
+            <button type="submit">Publicar Historia</button>
+        </form>
+    </main>
+    <footer>
+        <div class="contact">
+            <p>&copy; 2024 Plataforma Futurego. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@crowdfunding.com">contacto@crowdfunding.com</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('successStoryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const title = document.getElementById('title').value.trim();
+            const author = document.getElementById('author').value.trim();
+            const category = document.getElementById('category').value;
+            const content = document.getElementById('content').value.trim();
+            const images = document.getElementById('images').files;
+            const publishedDate = document.getElementById('publishedDate').value;
+            const featured = document.getElementById('featured').checked;
+            const rating = document.querySelector('input[name="rating"]:checked');
+    
+            if (!title || !author || !category || !content || !publishedDate || !rating) {
+                alert('Por favor complete todos los campos obligatorios.');
+                return;
+            }
+    
+            // Función para convertir imágenes a base64
+            const readFileAsDataURL = file => new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+    
+            const processImages = async () => {
+                const imagePromises = Array.from(images).map(readFileAsDataURL);
+                const imageBase64Array = await Promise.all(imagePromises);
+    
+                // Crear objeto con los datos de la historia
+                const story = {
+                    title,
+                    author,
+                    category,
+                    content,
+                    images: imageBase64Array,
+                    publishedDate,
+                    featured,
+                    rating: rating.value
+                };
+    
+                // Obtener historias almacenadas (si existen) del localStorage
+                let storedStories = JSON.parse(localStorage.getItem('stories')) || [];
+                storedStories.push(story);
+    
+                // Guardar historias actualizadas en el localStorage
+                localStorage.setItem('stories', JSON.stringify(storedStories));
+    
+                // Limpiar el formulario después de enviar
+                document.getElementById('successStoryForm').reset();
+    
+                // Mostrar mensaje de éxito (opcional)
+                alert('¡La historia se ha publicado correctamente!');
+    
+                // Redirigir a la página SEG1.html donde se mostrarán las historias (opcional)
+                window.location.href = 'SEG1.html';
+            };
+    
+            processImages();
+        });
+    </script>
+</body>
+</html>    
